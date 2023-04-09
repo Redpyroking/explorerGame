@@ -1,0 +1,13 @@
+[gd_resource type="Resource" load_steps=2 format=2]
+
+[ext_resource path="res://ScriptResource/moveset.gd" type="Script" id=1]
+
+[resource]
+script = ExtResource( 1 )
+name = "Drop Quake"
+alias = "dropquake"
+description = ""
+moveType = 0
+moveTarget = 2
+damage = 85
+flags = [  ]

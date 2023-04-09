@@ -1,0 +1,13 @@
+[gd_resource type="Resource" load_steps=2 format=2]
+
+[ext_resource path="res://ScriptResource/moveset.gd" type="Script" id=1]
+
+[resource]
+script = ExtResource( 1 )
+name = "High Jump"
+alias = "highjump"
+description = ""
+moveType = 3
+moveTarget = 0
+damage = 0
+flags = [  ]

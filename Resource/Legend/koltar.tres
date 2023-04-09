@@ -1,0 +1,23 @@
+[gd_resource type="Resource" load_steps=8 format=2]
+
+[ext_resource path="res://ScriptResource/baseLegend.gd" type="Script" id=1]
+[ext_resource path="res://Resource/Moves/fireball.tres" type="Resource" id=2]
+[ext_resource path="res://Resource/Moves/gravitypull.tres" type="Resource" id=3]
+[ext_resource path="res://Resource/Moves/wavepunch.tres" type="Resource" id=4]
+[ext_resource path="res://Resource/Moves/dashattack.tres" type="Resource" id=5]
+[ext_resource path="res://Resource/Moves/regeneration.tres" type="Resource" id=6]
+[ext_resource path="res://Resource/Moves/seekball.tres" type="Resource" id=7]
+
+[resource]
+script = ExtResource( 1 )
+name = "Koltar"
+alias = "koltar"
+height = 1.0
+weight = 7.0
+base_hitpoint = 55
+base_melee_attack = 45
+base_range_attack = 60
+base_defense = 45
+flags = [  ]
+moves = [ ExtResource( 5 ), ExtResource( 2 ), ExtResource( 3 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 4 ) ]
+movelevel = [ 1, 12, 20, 32, 48, 100 ]
