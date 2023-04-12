@@ -31,13 +31,6 @@ func _physics_process(delta):
 	else:
 		$function_manager.call(character.ability_func,delta)
 
-func _input(event):
-	if event is InputEventKey and event.is_pressed():
-		if event.is_action_pressed("climb") and colliding_with_wall and !is_on_floor():
-			is_climbing = !is_climbing
-			velocity = Vector2()
-			falling = false
-
 func hit():
 	get_tree().reload_current_scene()
 
