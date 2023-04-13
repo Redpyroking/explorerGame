@@ -12,6 +12,7 @@ export var base_range_attack = 1
 export var base_defense = 1
 export var ability_name = ""
 export var ability_func = ""
+export (Texture) var sprite
 export (String,MULTILINE) var ability_desc
 export (Array,String) var flags
 export (Array,Resource) var moves

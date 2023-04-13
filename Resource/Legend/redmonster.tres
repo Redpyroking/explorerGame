@@ -1,4 +1,4 @@
-[gd_resource type="Resource" load_steps=10 format=2]
+[gd_resource type="Resource" load_steps=11 format=2]
 
 [ext_resource path="res://ScriptResource/baseLegend.gd" type="Script" id=1]
 [ext_resource path="res://Resource/Moves/highjump.tres" type="Resource" id=2]
@@ -9,6 +9,7 @@
 [ext_resource path="res://Resource/Moves/dropquake.tres" type="Resource" id=7]
 [ext_resource path="res://Resource/Moves/speedboost.tres" type="Resource" id=8]
 [ext_resource path="res://Resource/Moves/dash.tres" type="Resource" id=9]
+[ext_resource path="res://Assest/Cubes/Main2.png" type="Texture" id=10]
 
 [resource]
 script = ExtResource( 1 )
@@ -22,6 +23,7 @@ base_range_attack = 45
 base_defense = 55
 ability_name = ""
 ability_func = "aab"
+sprite = ExtResource( 10 )
 ability_desc = ""
 flags = [  ]
 moves = [ ExtResource( 6 ), ExtResource( 9 ), ExtResource( 5 ), ExtResource( 7 ), ExtResource( 3 ), ExtResource( 2 ), ExtResource( 8 ), ExtResource( 4 ) ]

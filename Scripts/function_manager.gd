@@ -2,35 +2,12 @@ extends Node
 
 onready var parent = get_parent()
 
-func aaa(delta):
+func aaa(delta):#Wall Climbing
 	if Input.is_action_just_pressed("climb") and parent.colliding_with_wall and !parent.is_on_floor():
 			parent.is_climbing = !parent.is_climbing
 			parent.velocity = Vector2()
 			parent.falling = false
-	if !parent.is_climbing:
-		parent.velocity.y += parent.gravity * delta
-		if Input.is_action_pressed("ui_right"):
-			parent.velocity.x += parent.speed * delta
-			parent.get_node("Sprite").flip_h = false
-		elif Input.is_action_pressed("ui_left"):
-			parent.velocity.x -= parent.speed * delta
-			parent.get_node("Sprite").flip_h = true
-		if parent.is_on_floor():
-			parent.coyote_time = 0.08 # reset coyote time counter when on floor
-			if Input.is_action_pressed("jump"):
-				parent.velocity.y = -parent.jump_velocity
-				parent.can_climb = true
-		else:
-			parent.coyote_time -= delta # decrement coyote time counter
-			if Input.is_action_pressed("jump") and parent.coyote_time > 0:
-				parent.velocity.y = -parent.jump_velocity
-				parent.can_climb = true
-			else:
-				parent.can_climb = false
-		if Input.is_action_pressed("jump") and parent.buffer_jump_time > 0:
-			parent.velocity.y = -parent.jump_velocity
-			parent.buffer_jump_time = 0 # reset buffer jump counter
-	else:
+	if parent.is_climbing:
 		if Input.is_action_pressed("jump"):
 			if parent.colliding_with_wall:
 				parent.velocity.y = -parent.jump_velocity
@@ -45,37 +22,15 @@ func aaa(delta):
 			parent.velocity.y = 0
 		parent.velocity.x = 0
 
-	if parent.colliding_with_wall:
-		parent.velocity = parent.move_and_slide(parent.velocity, Vector2.UP)
-	else:
-		parent.position.x += parent.velocity.x * delta
-		parent.position.y += parent.velocity.y * delta
-		parent.is_climbing = false
-	parent.velocity.x = lerp(parent.velocity.x, 0, delta*8) # decrease friction
-
+var direction = 1
 func aab(delta):
-	parent.velocity.y += parent.gravity * delta
-	if Input.is_action_pressed("ui_right"):
-		parent.velocity.x += parent.speed * delta
-		parent.get_node("Sprite").flip_h = false
-	elif Input.is_action_pressed("ui_left"):
-		parent.velocity.x -= parent.speed * delta
-		parent.get_node("Sprite").flip_h = true
-	if parent.is_on_floor():
-		parent.coyote_time = 0.08 # reset coyote time counter when on floor
-		if Input.is_action_pressed("jump"):
-			parent.velocity.y = -parent.jump_velocity
-	else:
-		parent.coyote_time -= delta # decrement coyote time counter
-		if Input.is_action_pressed("jump") and parent.coyote_time > 0:
-			parent.velocity.y = -parent.jump_velocity
-	if Input.is_action_pressed("jump") and parent.buffer_jump_time > 0:
-		parent.velocity.y = -parent.jump_parent.velocity
-		parent.buffer_jump_time = 0 # reset buffer jump counter
-	
-	if parent.colliding_with_wall:
-		parent.velocity = parent.move_and_slide(parent.velocity, Vector2.UP)
-	else:
-		parent.position.x += parent.velocity.x * delta
-		parent.position.y += parent.velocity.y * delta
-	parent.velocity.x = lerp(parent.velocity.x, 0, delta*8) # decrease friction
+	# If the "climb" key is pressed, perform a dash
+	if Input.is_action_just_pressed("climb"):
+		# Determine the direction of the dash based on the sprite's flip_h property
+		if parent.get_node("Sprite").flip_h:
+			direction = -1
+		else:
+			direction = 1
+		
+		# Add the dash velocity in the correct direction
+		parent.velocity.x += 500 * direction
