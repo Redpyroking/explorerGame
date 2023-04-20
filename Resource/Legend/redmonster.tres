@@ -1,30 +1,24 @@
-[gd_resource type="Resource" load_steps=11 format=2]
+[gd_resource type="Resource" load_steps=4 format=2]
 
 [ext_resource path="res://ScriptResource/baseLegend.gd" type="Script" id=1]
-[ext_resource path="res://Resource/Moves/highjump.tres" type="Resource" id=2]
-[ext_resource path="res://Resource/Moves/enrage.tres" type="Resource" id=3]
-[ext_resource path="res://Resource/Moves/wavepunch.tres" type="Resource" id=4]
-[ext_resource path="res://Resource/Moves/dashattack.tres" type="Resource" id=5]
-[ext_resource path="res://Resource/Moves/blastpunch.tres" type="Resource" id=6]
-[ext_resource path="res://Resource/Moves/dropquake.tres" type="Resource" id=7]
-[ext_resource path="res://Resource/Moves/speedboost.tres" type="Resource" id=8]
-[ext_resource path="res://Resource/Moves/dash.tres" type="Resource" id=9]
+[ext_resource path="res://Resource/Weapon/shotgun.tres" type="Resource" id=2]
 [ext_resource path="res://Assest/Cubes/Main2.png" type="Texture" id=10]
 
 [resource]
 script = ExtResource( 1 )
 name = "Red Monster"
 alias = "redmonster"
-height = 1.0
-weight = 3.5
+height = 0.0
+weight = 0.0
 hp = 1
-base_melee_attack = 35
-base_range_attack = 45
-base_defense = 55
-ability_name = ""
+base_melee_attack = 1
+base_range_attack = 1
+base_defense = 1
+ability_name = "dash"
 ability_func = "aab"
 sprite = ExtResource( 10 )
 ability_desc = ""
 flags = [  ]
-moves = [ ExtResource( 6 ), ExtResource( 9 ), ExtResource( 5 ), ExtResource( 7 ), ExtResource( 3 ), ExtResource( 2 ), ExtResource( 8 ), ExtResource( 4 ) ]
-movelevel = [ 1, 12, 20, 32, 48, 56, 78, 100 ]
+moves = [  ]
+movelevel = [  ]
+gun = ExtResource( 2 )

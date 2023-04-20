@@ -27,10 +27,27 @@ func aab(delta):
 	# If the "climb" key is pressed, perform a dash
 	if Input.is_action_just_pressed("climb"):
 		# Determine the direction of the dash based on the sprite's flip_h property
+		dash_effect()
 		if parent.get_node("Sprite").flip_h:
 			direction = -1
 		else:
 			direction = 1
 		
 		# Add the dash velocity in the correct direction
-		parent.velocity.x += 500 * direction
+		parent.velocity.x += lerp(parent.velocity.x,1720 * direction ,0.3)
+
+func dash_effect():
+	var d = load("res://Scene/effect/dash.tscn").instance()
+	add_child(d)
+	d.global_position = parent.global_position
+	d.flip_h = parent.get_node("Sprite").flip_h
+	parent.get_node("dash_effect").start()
+
+var counter = 0
+
+func _on_dash_effect_timeout():
+	if counter < 4:
+		dash_effect()
+		counter+=1
+	else:
+		counter = 0

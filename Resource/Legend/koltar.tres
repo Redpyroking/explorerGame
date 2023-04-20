@@ -1,4 +1,4 @@
-[gd_resource type="Resource" load_steps=9 format=2]
+[gd_resource type="Resource" load_steps=10 format=2]
 
 [ext_resource path="res://ScriptResource/baseLegend.gd" type="Script" id=1]
 [ext_resource path="res://Resource/Moves/fireball.tres" type="Resource" id=2]
@@ -8,6 +8,7 @@
 [ext_resource path="res://Resource/Moves/regeneration.tres" type="Resource" id=6]
 [ext_resource path="res://Resource/Moves/seekball.tres" type="Resource" id=7]
 [ext_resource path="res://Assest/Cubes/Main.png" type="Texture" id=8]
+[ext_resource path="res://Resource/Weapon/rifle.tres" type="Resource" id=9]
 
 [resource]
 script = ExtResource( 1 )
@@ -26,3 +27,4 @@ ability_desc = "Is able to perform wall climbing."
 flags = [  ]
 moves = [ ExtResource( 5 ), ExtResource( 2 ), ExtResource( 3 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 4 ) ]
 movelevel = [ 1, 12, 20, 32, 48, 100 ]
+gun = ExtResource( 9 )

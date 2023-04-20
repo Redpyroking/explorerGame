@@ -17,3 +17,4 @@ export (String,MULTILINE) var ability_desc
 export (Array,String) var flags
 export (Array,Resource) var moves
 export (Array,int) var movelevel #correspond to moves
+export (Resource) var gun
