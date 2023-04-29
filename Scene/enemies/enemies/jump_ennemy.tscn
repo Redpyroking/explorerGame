@@ -2,7 +2,7 @@
 
 [ext_resource path="res://Scene/enemies/basic_enemy.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scene/enemies/enemies/jump_ennemy.gd" type="Script" id=2]
-[ext_resource path="res://icon.png" type="Texture" id=3]
+[ext_resource path="res://Assest/enemies/jump_enemy.png" type="Texture" id=3]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 8, 8 )
@@ -16,13 +16,15 @@ animations = [ {
 } ]
 
 [node name="jump_ennemy" instance=ExtResource( 1 )]
-collision_layer = 2
-collision_mask = 4
 script = ExtResource( 2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." index="0"]
 shape = SubResource( 1 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="." index="1"]
-scale = Vector2( 0.25, 0.25 )
 frames = SubResource( 2 )
+
+[node name="knock_time" type="Timer" parent="." index="2"]
+wait_time = 0.3
+
+[connection signal="timeout" from="knock_time" to="." method="_on_knock_time_timeout"]

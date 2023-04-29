@@ -69,6 +69,19 @@ func _physics_process(delta):
 		position.y += velocity.y * delta
 		is_climbing = false
 	velocity.x = lerp(velocity.x, 0, delta*friction) # decrease friction
+	check_die()
+
+func check_die():
+	if global_position.y > 2000:
+		global_position = Vector2(142,290)
+
+func apply_knockback(direction: Vector2, knockback_force: float):
+	# Normalize the direction vector to make it a unit vector
+	direction = direction.normalized()
+	# Apply the knockback force in the opposite direction of the hit
+	velocity = -direction * knockback_force
+	# Apply the velocity to the RigidBody2D node
+	self.velocity = velocity
 
 func hit():
 	get_tree().reload_current_scene()

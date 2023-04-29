@@ -34,7 +34,7 @@ func aab(delta):
 			direction = 1
 		
 		# Add the dash velocity in the correct direction
-		parent.velocity.x += lerp(parent.velocity.x,1720 * direction ,0.3)
+		parent.velocity.x += lerp(parent.velocity.x, 3200 * direction,0.2)
 
 func dash_effect():
 	var d = load("res://Scene/effect/dash.tscn").instance()

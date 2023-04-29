@@ -27,6 +27,5 @@ func _physics_process(delta):
 	var player_distance = get_parent().get_node("Player").global_position.distance_to(global_position)
 	if player_distance < DETECTION_RANGE:
 		is_chasing = true
-		print(player_distance)
 	else:
 		is_chasing = false

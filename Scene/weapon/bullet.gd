@@ -13,7 +13,8 @@ func _physics_process(delta):
 
 func _on_bullet_body_entered(body):
 	if body.has_method("hit"):
-		body.hit()
+		var dir = (global_position - body.global_position).normalized()
+		body.hit(dir)
 		queue_free()
 	else:
 		queue_free()
