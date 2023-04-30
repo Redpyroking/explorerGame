@@ -1,0 +1,62 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Scene/GUI/GUI.gd" type="Script" id=1]
+[ext_resource path="res://Scene/GUI/PlayerSelection.tscn" type="PackedScene" id=2]
+
+[sub_resource type="StyleBoxFlat" id=4]
+bg_color = Color( 1, 0.262745, 0.4, 1 )
+
+[sub_resource type="StyleBoxFlat" id=5]
+bg_color = Color( 0.0941176, 0.101961, 0.192157, 1 )
+
+[node name="Control" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 2.0
+margin_top = -2.0
+margin_right = -24.0
+margin_bottom = -28.0
+mouse_filter = 2
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_horizontal_guides_": [ 22.0 ]
+}
+
+[node name="ProgressBar" type="ProgressBar" parent="."]
+anchor_left = 0.792969
+anchor_top = 0.0333333
+anchor_right = 0.949219
+anchor_bottom = 0.0866667
+custom_styles/fg = SubResource( 4 )
+custom_styles/bg = SubResource( 5 )
+max_value = 5.0
+value = 5.0
+percent_visible = false
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Label" type="Label" parent="ProgressBar"]
+modulate = Color( 0, 0, 0, 1 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+text = "5/5"
+align = 1
+valign = 1
+
+[node name="Button" parent="." instance=ExtResource( 2 )]
+
+[node name="Label" type="Label" parent="."]
+margin_left = 385.0
+margin_top = 34.0
+margin_right = 425.0
+margin_bottom = 48.0
+text = "Coins: "
+
+[node name="coin_amount" type="Label" parent="."]
+margin_left = 430.0
+margin_top = 34.0
+margin_right = 470.0
+margin_bottom = 48.0
+text = "0"
+valign = 1

@@ -77,7 +77,7 @@ script = ExtResource( 6 )
 weapon = ExtResource( 3 )
 
 [node name="Wall" type="Area2D" parent="."]
-collision_mask = 6
+collision_mask = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Wall"]
 shape = SubResource( 9 )

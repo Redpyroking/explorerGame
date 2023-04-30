@@ -4,9 +4,6 @@
 [ext_resource path="res://Scene/enemies/enemies/jump_ennemy.gd" type="Script" id=2]
 [ext_resource path="res://Assest/enemies/jump_enemy.png" type="Texture" id=3]
 
-[sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 8, 8 )
-
 [sub_resource type="SpriteFrames" id=2]
 animations = [ {
 "frames": [ ExtResource( 3 ) ],
@@ -15,16 +12,26 @@ animations = [ {
 "speed": 5.0
 } ]
 
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 8, 8 )
+
 [node name="jump_ennemy" instance=ExtResource( 1 )]
 script = ExtResource( 2 )
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." index="0"]
-shape = SubResource( 1 )
-
-[node name="AnimatedSprite" type="AnimatedSprite" parent="." index="1"]
+[node name="AnimatedSprite" type="AnimatedSprite" parent="." index="0"]
 frames = SubResource( 2 )
 
-[node name="knock_time" type="Timer" parent="." index="2"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." index="1"]
+shape = SubResource( 1 )
+
+[node name="RayCast2D" type="RayCast2D" parent="." index="2"]
+position = Vector2( 8, 0 )
+enabled = true
+cast_to = Vector2( 5, 0 )
+collision_mask = 4
+
+[node name="knock_time" type="Timer" parent="." index="3"]
 wait_time = 0.3
+one_shot = true
 
 [connection signal="timeout" from="knock_time" to="." method="_on_knock_time_timeout"]

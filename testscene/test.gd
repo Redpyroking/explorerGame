@@ -1,6 +1,7 @@
 extends Node2D
 
 export (PackedScene) var jump_enemy
+export (PackedScene) var fly_enemy
 onready var timer = $Timer
 
 func _ready():
@@ -15,11 +16,17 @@ func _physics_process(delta):
 func _on_Timer_timeout():
 	$Timer.wait_time = rand_range(1,3)
 	var j = jump_enemy.instance()
-	var rand_pos = Vector2(rand_range(0,300),rand_range(0,300))
-	var wall_tile = $Wall.get_cellv($Wall.world_to_map(rand_pos))
+	var k = fly_enemy.instance()
+	var rand_pos_k = Vector2(rand_range(0,300),rand_range(0,300))
+	var rand_pos_j = Vector2(rand_range(0,300),rand_range(0,300))
+	var wall_tile_k = $Wall.get_cellv($Wall.world_to_map(rand_pos_k))
+	var wall_tile_j = $Wall.get_cellv($Wall.world_to_map(rand_pos_j))
 	
-	if wall_tile == -1 and $Enemy_box.get_child_count() < 10:
-		j.global_position = rand_pos
+	if wall_tile_k == -1 and $Enemy_box.get_child_count() < 10:
+		j.global_position = rand_pos_k
+		$Enemy_box.add_child(k)
+	if wall_tile_j == -1 and $Enemy_box.get_child_count() < 20:
+		k.global_position = rand_pos_j
 		$Enemy_box.add_child(j)
 		
 	$Timer.wait_time = 1

@@ -4,7 +4,6 @@ const JUMP_SPEED = -300
 var velocity = Vector2.ZERO
 export var health = 2
 var is_jumping = false
-var stun_time = 1.0
 
 func _ready():
 	randomize()

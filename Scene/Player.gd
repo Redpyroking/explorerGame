@@ -22,6 +22,7 @@ var can_climb = false
 var climb_speed = 100
 
 func _ready():
+	Global.Player = self
 	max_health = character.hp
 	heathbar.max_value = max_health
 	heathbar.value = max_health
