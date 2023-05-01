@@ -14,7 +14,8 @@ var falling = false
 var colliding_with_wall = false
 var max_health: int
 var friction = 10
-
+var check_fall = 0
+const FALL_LIMIT = 200
 onready var heathbar = get_parent().get_node("CanvasLayer/Control/ProgressBar")
 
 var is_climbing = false
@@ -40,6 +41,8 @@ func _physics_process(delta):
 		$function_manager.call(character.ability_func,delta)
 	if !is_climbing:
 		velocity.y += gravity * delta
+		if check_fall <= FALL_LIMIT:
+			check_fall += 1
 	if Input.is_action_pressed("ui_right"):
 		velocity.x += speed * delta
 		get_node("Sprite").flip_h = false
@@ -53,6 +56,12 @@ func _physics_process(delta):
 		if Input.is_action_pressed("jump"):
 			velocity.y = -jump_velocity
 			can_climb = true
+		var hurt_l = int(check_fall/(FALL_LIMIT/3))
+		if hurt_l != 0:
+			print(hurt_l)
+			for i in hurt_l:
+				hit()
+		check_fall = 0
 	else:
 		coyote_time -= delta # decrement coyote time counter
 		if Input.is_action_pressed("jump") and coyote_time > 0:
@@ -85,7 +94,9 @@ func apply_knockback(direction: Vector2, knockback_force: float):
 	self.velocity = velocity
 
 func hit():
-	get_tree().reload_current_scene()
+	heathbar.value -= 1
+	if heathbar.value == 0:
+		get_tree().reload_current_scene()
 
 func _on_Wall_body_entered(body):
 	colliding_with_wall = true

@@ -4,7 +4,7 @@
 [ext_resource path="res://Scene/GUI/PlayerSelection.tscn" type="PackedScene" id=2]
 
 [sub_resource type="StyleBoxFlat" id=4]
-bg_color = Color( 1, 0.262745, 0.4, 1 )
+bg_color = Color( 0.854902, 0.0392157, 0.192157, 1 )
 
 [sub_resource type="StyleBoxFlat" id=5]
 bg_color = Color( 0.0941176, 0.101961, 0.192157, 1 )
@@ -27,22 +27,15 @@ anchor_left = 0.792969
 anchor_top = 0.0333333
 anchor_right = 0.949219
 anchor_bottom = 0.0866667
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
 custom_styles/fg = SubResource( 4 )
 custom_styles/bg = SubResource( 5 )
 max_value = 5.0
 value = 5.0
-percent_visible = false
 __meta__ = {
 "_edit_use_anchors_": true
 }
-
-[node name="Label" type="Label" parent="ProgressBar"]
-modulate = Color( 0, 0, 0, 1 )
-anchor_right = 1.0
-anchor_bottom = 1.0
-text = "5/5"
-align = 1
-valign = 1
 
 [node name="Button" parent="." instance=ExtResource( 2 )]
 
