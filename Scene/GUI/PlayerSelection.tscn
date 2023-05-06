@@ -1,7 +1,5 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=2 format=2]
 
-[ext_resource path="res://Assest/Cubes/Main2.png" type="Texture" id=1]
-[ext_resource path="res://Assest/Cubes/Main.png" type="Texture" id=2]
 [ext_resource path="res://Scene/GUI/PlayerSelection.gd" type="Script" id=3]
 
 [node name="Button" type="Button"]
@@ -13,21 +11,19 @@ toggle_mode = true
 text = "|||"
 script = ExtResource( 3 )
 
-[node name="main1" type="TextureButton" parent="."]
+[node name="main1" type="Button" parent="."]
 visible = false
-margin_left = 48.0
-margin_right = 96.0
+margin_left = 58.0
+margin_right = 109.0
 margin_bottom = 48.0
-texture_normal = ExtResource( 2 )
-expand = true
+text = "MENU"
 
-[node name="main2" type="TextureButton" parent="."]
+[node name="main2" type="Button" parent="."]
 visible = false
-margin_left = 96.0
-margin_right = 144.0
+margin_left = 122.0
+margin_right = 173.0
 margin_bottom = 48.0
-texture_normal = ExtResource( 1 )
-expand = true
+text = "EXIT"
 
 [connection signal="toggled" from="." to="." method="_on_Button_toggled"]
 [connection signal="pressed" from="main1" to="." method="_on_main1_pressed"]

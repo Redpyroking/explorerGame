@@ -58,7 +58,6 @@ func _physics_process(delta):
 			can_climb = true
 		var hurt_l = int(check_fall/(FALL_LIMIT/3))
 		if hurt_l != 0:
-			print(hurt_l)
 			for i in hurt_l:
 				hit()
 		check_fall = 0

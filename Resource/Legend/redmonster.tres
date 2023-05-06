@@ -1,7 +1,7 @@
 [gd_resource type="Resource" load_steps=4 format=2]
 
 [ext_resource path="res://ScriptResource/baseLegend.gd" type="Script" id=1]
-[ext_resource path="res://Resource/Weapon/shotgun.tres" type="Resource" id=2]
+[ext_resource path="res://Resource/Weapon/rifle.tres" type="Resource" id=2]
 [ext_resource path="res://Assest/Cubes/Main2.png" type="Texture" id=10]
 
 [resource]

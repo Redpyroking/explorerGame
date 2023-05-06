@@ -18,8 +18,7 @@ func change_weapon():
 		w.init(get_parent().character.gun)
 
 func _physics_process(delta):
-	if !is_drilling:
-		look_at(get_global_mouse_position())
+	look_at(get_global_mouse_position())
 	if get_global_mouse_position().x < get_parent().global_position.x:
 		scale.y = -1
 	else:

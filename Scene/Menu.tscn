@@ -1,0 +1,41 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Scene/Menu.gd" type="Script" id=1]
+
+[node name="Menu" type="Node2D"]
+script = ExtResource( 1 )
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Control" type="Control" parent="CanvasLayer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="Label" type="Label" parent="CanvasLayer/Control"]
+modulate = Color( 0, 0, 0, 1 )
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -128.0
+margin_top = 72.0
+margin_right = 128.0
+margin_bottom = 128.0
+text = "EXPLORER"
+align = 1
+valign = 1
+
+[node name="Play" type="Button" parent="CanvasLayer/Control"]
+margin_left = 192.0
+margin_top = 128.0
+margin_right = 320.0
+margin_bottom = 176.0
+text = "PLAY"
+
+[node name="Exit" type="Button" parent="CanvasLayer/Control"]
+margin_left = 192.0
+margin_top = 200.0
+margin_right = 320.0
+margin_bottom = 248.0
+text = "EXIT"
+
+[connection signal="pressed" from="CanvasLayer/Control/Play" to="." method="_on_Play_pressed"]
+[connection signal="pressed" from="CanvasLayer/Control/Exit" to="." method="_on_Exit_pressed"]

@@ -1,0 +1,40 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://tilemap.tres" type="TileSet" id=1]
+[ext_resource path="res://Scene/Player.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Resource/Legend/redmonster.tres" type="Resource" id=3]
+[ext_resource path="res://Scene/GUI/GUI.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Scene/Door.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Scene/enemies/enemies/fly_enemy.tscn" type="PackedScene" id=7]
+
+[node name="level1" type="Node2D"]
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = ExtResource( 1 )
+cell_size = Vector2( 16, 16 )
+collision_layer = 4
+collision_mask = 3
+format = 1
+tile_data = PoolIntArray( 0, 3, 0, 1, 3, 0, 2, 3, 0, 3, 3, 0, 4, 3, 0, 5, 3, 0, 6, 3, 0, 7, 3, 0, 8, 3, 0, 9, 3, 0, 10, 3, 0, 11, 3, 0, 12, 3, 0, 13, 3, 0, 14, 3, 0, 15, 3, 0, 16, 3, 0, 17, 3, 0, 18, 3, 0, 19, 3, 0, 20, 3, 0, 21, 3, 0, 22, 3, 0, 23, 3, 0, 24, 3, 0, 25, 3, 0, 26, 3, 0, 27, 3, 0, 28, 3, 0, 29, 3, 0, 30, 3, 0, 31, 3, 0, 65536, 3, 0, 65567, 3, 0, 131072, 3, 0, 131103, 3, 0, 196608, 3, 0, 196639, 3, 0, 262144, 3, 0, 262175, 3, 0, 327680, 3, 0, 327711, 3, 0, 393216, 3, 0, 393247, 3, 0, 458752, 3, 0, 458783, 3, 0, 524288, 3, 0, 524319, 3, 0, 589824, 3, 0, 589855, 3, 0, 655360, 3, 0, 655391, 3, 0, 720896, 3, 0, 720927, 3, 0, 786432, 3, 0, 786463, 3, 0, 851968, 3, 0, 851999, 3, 0, 917504, 3, 0, 917535, 3, 0, 983040, 3, 0, 983071, 3, 0, 1048576, 3, 0, 1048607, 3, 0, 1114112, 3, 0, 1114143, 3, 0, 1179648, 3, 0, 1179649, 3, 0, 1179650, 3, 0, 1179651, 3, 0, 1179652, 3, 0, 1179653, 3, 0, 1179654, 3, 0, 1179655, 3, 0, 1179656, 3, 0, 1179657, 3, 0, 1179658, 3, 0, 1179659, 3, 0, 1179660, 3, 0, 1179661, 3, 0, 1179662, 3, 0, 1179663, 3, 0, 1179664, 3, 0, 1179665, 3, 0, 1179666, 3, 0, 1179667, 3, 0, 1179668, 3, 0, 1179669, 3, 0, 1179670, 3, 0, 1179671, 3, 0, 1179672, 3, 0, 1179673, 3, 0, 1179674, 3, 0, 1179675, 3, 0, 1179676, 3, 0, 1179677, 3, 0, 1179678, 3, 0, 1179679, 3, 0 )
+
+[node name="Door" parent="." instance=ExtResource( 6 )]
+position = Vector2( 448, 272 )
+
+[node name="Player" parent="." instance=ExtResource( 2 )]
+position = Vector2( 40, 224 )
+character = ExtResource( 3 )
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Control" parent="CanvasLayer" instance=ExtResource( 4 )]
+
+[node name="Enemy_box" type="Node" parent="."]
+
+[node name="fly_enemy" parent="Enemy_box" instance=ExtResource( 7 )]
+position = Vector2( 320, 224 )
+
+[node name="Coin_box" type="Node" parent="."]
+
+[connection signal="body_exited" from="Door" to="Door" method="_on_Door_body_exited"]

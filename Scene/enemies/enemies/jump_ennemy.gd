@@ -1,7 +1,7 @@
 extends "res://Scene/enemies/basic_enemy.gd"
 
 const GRAVITY = 720
-const MOVE_SPEED = 75
+const MOVE_SPEED = 95
 
 onready var wall = get_tree().get_root().find_node("Wall",true,false)
 var player
@@ -21,18 +21,18 @@ func _physics_process(delta):
 		if velocity.x != 0:
 			if velocity.x < 0:
 				velocity.x = MOVE_SPEED
-				scale.x = 1
+				$AnimatedSprite.flip_h = false
 			else:
 				velocity.x = -MOVE_SPEED
-				scale.x = -1
+				$AnimatedSprite.flip_h = true
 		else:
 			match move_ran:
 				0:
 					velocity.x = MOVE_SPEED
-					scale.x = 1
+					$AnimatedSprite.flip_h = false
 				1:
 					velocity.x = -MOVE_SPEED
-					scale.x = -1
+					$AnimatedSprite.flip_h = true
 	velocity = move_and_slide(velocity, Vector2.UP)
 
 func check_fall(delta):
