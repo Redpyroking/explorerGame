@@ -14,6 +14,8 @@ func _process(delta):
 			n += 1
 			if ResourceLoader.exists("res://Scene/Levels/level"+str(n)+".tscn"):
 				get_tree().change_scene("res://Scene/Levels/level"+str(n)+".tscn")
+			elif int(levelname[-1] == 5):
+				get_tree().change_scene("res://Scene/Levels/win.tscn")
 	else:
 		$Label.hide()
 
